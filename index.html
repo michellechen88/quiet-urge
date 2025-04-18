@@ -3,26 +3,71 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Quiet Urge</title>
-
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <!-- <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script> -->
   </head>
 
   <body>
-    <!-- <script src="sketch.js"></script> -->
-     <div class="content-container" id="prime-1">
-        <div class="content">
-          <div class="text">
-            <h3>This may take a moment...</h3>
-          </div>
-          <div class="text-loader">
-            <h3>this may take a moment...</h3> 
-          </div>
+    <div class="content-container" id="prime-1">
+      <div class="content">
+        <div class="text">
+          <h3 id="text">This may take a moment...</h3>
         </div>
-     </div>
-
+      </div>
+    </div>
+    
+    <script>
+      const sentences = ["This may take a moment...", "Just a bit more...", "Well, this is getting a little awkward...", "Ah! Here we go!"];
+      const duration = 2000;
+      const settleSpeed = 50;
+      const frameRate = 15;
+      const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const textElement = document.getElementById("text");
+      let lingerTime = 1500;
+    
+      function animateSentence(sentence, lingerTime, onComplete) {
+        let currentText = Array.from({ length: sentence.length }, () => " ");
+        
+        const shuffleInterval = setInterval(() => {
+          currentText = currentText.map((_, i) =>
+            sentence[i] === " " ? " " : characters[Math.floor(Math.random() * characters.length)]
+          );
+          textElement.textContent = currentText.join("");
+        }, 1000 / frameRate);
+    
+        setTimeout(() => {
+          clearInterval(shuffleInterval);
+          let i = 0;
+          const settleInterval = setInterval(() => {
+            currentText[i] = sentence[i];
+            textElement.textContent = currentText.join("");
+            i++;
+            if (i >= sentence.length) {
+              clearInterval(settleInterval);
+              setTimeout(onComplete, lingerTime);
+            }
+          }, settleSpeed);
+        }, duration);
+      }
+    
+      function animateAll(sentences) {
+        let index = 0;
+        function next() {
+          if (index < sentences.length) {
+            const currentLingerTime = lingerTime;
+            lingerTime += 500;
+            
+            animateSentence(sentences[index], currentLingerTime, () => {
+              index++;
+              setTimeout(next, 1000);
+            });
+          }
+        }
+        next();
+      }
+    
+      animateAll(sentences);
+    </script>
+    
   </body>
 </html>

@@ -1,85 +1,42 @@
 html, body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body{
-    background-color: black;
-    color: white;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-  }
-  
-  /* canvas {
-    display: block;
-  } */
-  
-  .content-container{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  h3{
-    font-weight: 300;
-    letter-spacing: .15em;
-  }
-  
-  #prime-1 .text-loader{
-    background-color: rgb(107, 107, 107);
-    color: rgb(107, 107, 107);
-    height: 2em;
-    border-radius: .5em;
-    opacity: 0;
-    animation: show 1s ease-in-out forwards, hide 1s ease-in-out forwards;
-    animation-delay: 0s, 5s;
-  }
-  
-  #prime-1 .text{
-    position: absolute;
-    opacity: 0;
-    animation: show 1s ease-in-out forwards;
-    animation-delay: 5.5s;
-  }
-  
-  .content-container{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.content-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background: #000000;
   background: linear-gradient(45deg, rgba(0, 0, 0, 1) 0%, rgb(36, 36, 36) 50%, rgb(62, 62, 62) 100%);
   background-size: 300%;
   animation: gradientBg 10s linear infinite alternate;
-  }
-  
-  @keyframes gradientBg{
-    0% {
+}
+
+h3 {
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes gradientBg {
+  0% {
       background-position: 0% 50%;
-    }
-    50% {
+  }
+  50% {
       background-position: 100% 50%;
-    }
-    100% {
+  }
+  100% {
       background-position: 0% 50%;
-    }
   }
-  
-  @keyframes show {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes hide {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  
+}
