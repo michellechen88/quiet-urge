@@ -6,7 +6,6 @@
     <title>Quiet Urge</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-
   <body>
     <div class="content-container" id="prime-1">
       <div class="content">
@@ -15,7 +14,7 @@
         </div>
       </div>
     </div>
-    
+
     <script>
       const sentences = ["This may take a moment...", "Just a bit more...", "Well, this is getting a little awkward...", "Ah! Here we go!"];
       const duration = 2000;
@@ -23,8 +22,8 @@
       const frameRate = 15;
       const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
       const textElement = document.getElementById("text");
-      let lingerTime = 1500;
-    
+      let lingerTime = 2000;
+
       function animateSentence(sentence, lingerTime, onComplete) {
         let currentText = Array.from({ length: sentence.length }, () => " ");
         
@@ -34,7 +33,7 @@
           );
           textElement.textContent = currentText.join("");
         }, 1000 / frameRate);
-    
+
         setTimeout(() => {
           clearInterval(shuffleInterval);
           let i = 0;
@@ -49,25 +48,31 @@
           }, settleSpeed);
         }, duration);
       }
-    
+
       function animateAll(sentences) {
         let index = 0;
         function next() {
           if (index < sentences.length) {
+            textElement.style.opacity = 0;
+
             const currentLingerTime = lingerTime;
             lingerTime += 500;
-            
-            animateSentence(sentences[index], currentLingerTime, () => {
-              index++;
-              setTimeout(next, 1000);
-            });
+
+            setTimeout(() => {
+              textElement.textContent = sentences[index];
+              textElement.style.opacity = 1;
+
+              animateSentence(sentences[index], currentLingerTime, () => {
+                index++;
+                setTimeout(next, 1000);
+              });
+            }, 500);
           }
         }
         next();
       }
-    
+
       animateAll(sentences);
     </script>
-    
   </body>
 </html>
