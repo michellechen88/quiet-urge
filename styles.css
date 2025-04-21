@@ -64,6 +64,7 @@ input[type="text"]{
   font-size: 16px;
   text-align: center;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
 }
 
 button{
@@ -75,6 +76,7 @@ button{
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
 }
 
 #imagePH, #pfp{
@@ -85,7 +87,7 @@ button{
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
 #pfp{
@@ -94,5 +96,8 @@ button{
 
 #imagePH{
   z-index: 1;
+  background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
+  background-size: 150%;
+  animation: gradientBg 2ms linear infinite;
 }
 

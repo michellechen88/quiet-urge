@@ -5,7 +5,7 @@ const settleSpeed = 50;
 const frameRate = 15;
 const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const textElement = document.getElementById("text");
-let lingerTime = 2000;
+let lingerTime = 10;
 
 function animateSentence(sentence, lingerTime, onComplete) {
   let currentText = Array.from({ length: sentence.length }, () => " ");
@@ -50,9 +50,31 @@ function animateAll(sentences) {
           setTimeout(next, 1000);
         });
       }, 500);
-    }
-  }
+    } else {
+        setTimeout(() => {
+            document.getElementById("prime-1").style.display = "none";
+            document.getElementById("userLog").style.display = "flex";
+
+            const pfp = document.getElementById("pfp");
+            pfp.style.opacity = "0";
+
+            setTimeout(() => {
+                pfp.style.opacity = "1";
+            }, 5000);
+          }, 2500);
+        }
+      }
   next();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("userInput");
+    const button = document.getElementById("submit");
+  
+    button.addEventListener("click", () => {
+      console.log("Submitted:", input.value);
+      input.value = "";
+    });
+  });
 
 animateAll(sentences);
