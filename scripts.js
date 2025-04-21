@@ -74,6 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       console.log("Submitted:", input.value);
       input.value = "";
+
+      window.location.href = "desktop.html";
     });
   });
 

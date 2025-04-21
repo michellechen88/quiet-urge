@@ -41,6 +41,10 @@ h3 {
   }
 }
 
+#userLog{
+  display: none;
+}
+
 .image-wrapper{
   position: relative;
   width: 100px;
@@ -98,6 +102,6 @@ button{
   z-index: 1;
   background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
   background-size: 150%;
-  animation: gradientBg 2ms linear infinite;
+  animation: gradientBg 2s linear infinite;
 }
 
