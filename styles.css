@@ -24,6 +24,23 @@ body {
   animation: gradientBg 10s linear infinite alternate;
 }
 
+#progressBarContainer {
+  width: 80%;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 10px auto 0 auto;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 0%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: white;
+  transition: width linear;
+}
+
 h3 {
   font-weight: 300;
   letter-spacing: 0.15em;
@@ -105,6 +122,8 @@ button {
   background-size: 150%;
   animation: gradientBg 2s linear infinite;
 }
+
+/* desktop page */
 
 #desktopLoad {
   display: flex;
