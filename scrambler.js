@@ -7,15 +7,18 @@ export function animateSentence(textElement, sentence, options = {}, onComplete 
   
     let currentText = Array.from({ length: sentence.length }, () => " ");
     const progressBar = document.getElementById("progressBar");
-  
-    // Reset and start progress bar
+
     if (progressBar) {
-      progressBar.style.transition = "none";
-      progressBar.style.width = "0%";
-      void progressBar.offsetWidth; // trigger reflow
-      progressBar.style.transition = `width ${duration + sentence.length * settleSpeed}ms linear`;
-      progressBar.style.width = "100%";
-    }
+        progressBar.style.transition = "none";
+        progressBar.style.width = "0%";
+        progressBar.style.opacity = "0";
+        void progressBar.offsetWidth;
+
+        const totalDuration = duration + sentence.length * settleSpeed;
+        progressBar.style.transition = `width ${totalDuration}ms linear, opacity 0.5s ease-in-out`;
+        progressBar.style.opacity = "1";
+        progressBar.style.width = "100%";
+      }
   
     const shuffleInterval = setInterval(() => {
       currentText = currentText.map((_, i) =>
