@@ -46,3 +46,28 @@ document.addEventListener("DOMContentLoaded", () => {
       timerElement.textContent = `${elapsedTime}s`;
     }, 1000);
   });  
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tBar = document.getElementById("timerBar");
+    const timerElement = document.getElementById("timer");
+  
+    if (tBar && timerElement) {
+      timerElement.style.opacity = "0";
+  
+      requestAnimationFrame(() => {
+        tBar.style.opacity = "1";
+        tBar.style.width = "100%";
+      });
+  
+      setTimeout(() => {
+        tBar.style.opacity = "0";
+        timerElement.style.opacity = "1";
+      }, 3500); 
+    }
+  
+    let startTime = Date.now();
+    setInterval(() => {
+      let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+      timerElement.textContent = `${elapsedTime}s`;
+    }, 1000);
+  });  

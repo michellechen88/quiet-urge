@@ -16,7 +16,7 @@ export function animateSentence(textElement, sentence, options = {}, onComplete 
 
         const totalDuration = duration + sentence.length * settleSpeed;
         progressBar.style.transition = `width ${totalDuration}ms linear, opacity 0.5s ease-in-out`;
-        progressBar.style.opacity = "1";
+        progressBar.style.opacity = ".5";
         progressBar.style.width = "100%";
       }
   
