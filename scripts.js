@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pfp = document.getElementById("pfp");
     pfp.style.opacity = "0";
+
     setTimeout(() => {
       pfp.style.opacity = "1";
     }, 5000);
@@ -34,3 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "desktop.html";
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    let startTime = Date.now(); // Capture the time when the page loads
+  
+    const timerElement = document.getElementById("timer");
+  
+    setInterval(() => {
+      let elapsedTime = Math.floor((Date.now() - startTime) / 1000); // Time in seconds
+      timerElement.textContent = `${elapsedTime}s`;
+    }, 1000);
+  });  
