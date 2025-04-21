@@ -39,7 +39,7 @@ function animateAll(sentences) {
       textElement.style.opacity = 0;
 
       const currentLingerTime = lingerTime;
-      lingerTime += 500;
+      lingerTime += 1500;
 
       setTimeout(() => {
         textElement.textContent = sentences[index];
