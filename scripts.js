@@ -37,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    let startTime = Date.now(); // Capture the time when the page loads
+    let startTime = Date.now();
   
     const timerElement = document.getElementById("timer");
   
     setInterval(() => {
-      let elapsedTime = Math.floor((Date.now() - startTime) / 1000); // Time in seconds
+      let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
       timerElement.textContent = `${elapsedTime}s`;
     }, 1000);
   });  
