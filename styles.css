@@ -11,7 +11,9 @@ body {
 
 .content-container {
   position: relative;
+  overflow-y: hidden;
   max-width: 100vw;
+  max-height: 100vh;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -153,6 +155,7 @@ button {
 }
 
 .app-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -164,6 +167,12 @@ button {
   padding-bottom: .5em;
 }
 
+.icon-stack{
+  position: relative;
+}
+.icon-stack img, .icon-stack #imgPH{
+  position: absolute;
+}
 .app-wrapper .app-icon{
   width: 8vw;
   height: 8vw;
@@ -178,12 +187,12 @@ button {
 
 #actualApp img{
   width: 8vw;
-  margin-left: 1em;
+  z-index: 3;
 }
 
-.dock-wrapper img{
-  width: 2em;
-  margin-left: 1em;
+.dock-wrapper #actualApp img{
+  width: 5vw;
+  /* margin-left: 1em; */
 }
 
 .app-wrapper .app-name{
@@ -192,7 +201,6 @@ button {
 
 .dock-wrapper {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
   flex-direction: row;
   width: 90vw; 
@@ -205,12 +213,10 @@ button {
 
 
 .dock-wrapper .app-icon {
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
   background-color: #63626286;
   border-radius: 10px;
-  margin-bottom: .5em;
-  margin-top: .5em;
   z-index: 2;
   background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
   background-size: 150%;
