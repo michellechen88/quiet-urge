@@ -150,7 +150,6 @@ button {
 
 .info-wrapper #timer{
   padding-right: 1.5em;
-  font
 }
 
 .app-wrapper {
@@ -175,6 +174,16 @@ button {
   background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
   background-size: 150%;
   animation: gradientBg 2s linear infinite;
+}
+
+#actualApp img{
+  width: 8vw;
+  margin-left: 1em;
+}
+
+.dock-wrapper img{
+  width: 2em;
+  margin-left: 1em;
 }
 
 .app-wrapper .app-name{
@@ -216,5 +225,21 @@ h5{
 
 #timer{
   font-size: 1em;
-  opacity: .75;
+  opacity: 0;
+}
+
+.tbar-container {
+  width: 80vw;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin-top: 0.5em;
+}
+
+#timerBar {
+  width: 0%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: width 3s linear, opacity 0.5s ease-in-out;
 }
