@@ -34,6 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
     input.value = "";
     window.location.href = "desktop.html";
   });
+  
+  let startTime = Date.now();
+  
+  const timerElement = document.getElementById("timer");
+
+  setInterval(() => {
+    let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+    timerElement.textContent = `${elapsedTime}s`;
+  }, 1000);
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -71,3 +81,24 @@ document.addEventListener("DOMContentLoaded", () => {
       timerElement.textContent = `${elapsedTime}s`;
     }, 1000);
   });  
+
+  // bg appear in desktop.html
+  document.addEventListener("DOMContentLoaded", () => {
+    const loadedBg = document.getElementById("loaded-bg");
+    const appIcons = document.querySelectorAll("#actualApp");
+    const imgPlace = document.querySelectorAll("#imgPH");
+  
+    const randomDelay = Math.random() * (10000 - 5000) + 5000; // 5-10 seconds
+  
+    setTimeout(() => {
+      loadedBg.style.opacity = "1";
+    }, randomDelay);
+
+    appIcons.forEach((appIcon, index) => {
+    setTimeout(() => {
+      appIcon.style.opacity = "1";
+      imgPlace[index].style.opacity = "0";
+    }, randomDelay + Math.random() * 8000);
+    });
+  });
+  
