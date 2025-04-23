@@ -113,70 +113,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function triggerGridAppear() {
       const gridItems = Array.from(document.querySelectorAll('.grid-item'));
-      
+    
       gridItems.sort((a, b) => {
-        const idA = parseInt(a.querySelector('img').id, 10);
-        const idB = parseInt(b.querySelector('img').id, 10);
-        return idB - idA; 
+        const idA = parseInt(a.querySelector('img').id, 17);
+        const idB = parseInt(b.querySelector('img').id, 17);
+        return idB - idA;
       });
-      
-      const baseDelay = 9000;
+    
+      const baseDelay = 8000;
       let delay = baseDelay;
     
       const sounds = [
         'sounds/ding-sound-effect_2.mp3',
-        'quiet-urge/sounds/discord-call-sound.mp3',
-        'quiet-urge/sounds/discord-notification.mp3',
-        'quiet-urge/sounds/error_CDOxCYm.mp3',
-        'quiet-urge/sounds/facetime.mp3',
-        'quiet-urge/sounds/kai-bomboclat.mp3',
-        'quiet-urge/sounds/mustardddddddd.mp3',
-        'quiet-urge/sounds/outlook_jjD4Xg8.mp3',
-        'quiet-urge/sounds/vine-boom.mp3',
-        'quiet-urge/sounds/among-us-role-reveal-sound.mp3',
-        'quiet-urge/sounds/rat-dance-music.mp3',
-        'quiet-urge/sounds/yippeeeeeeeeeeeeee.mp3',
-        'quiet-urge/sounds/sad-meow-song.mp3'
+        'sounds/discord-call-sound.mp3',
+        'sounds/discord-notification.mp3',
+        'sounds/error_CDOxCYm.mp3',
+        'sounds/facetime.mp3',
+        'sounds/kai-bomboclat.mp3',
+        'sounds/mustardddddddd.mp3',
+        'sounds/outlook_jjD4Xg8.mp3',
+        'sounds/vine-boom.mp3',
+        'sounds/among-us-role-reveal-sound.mp3',
+        'sounds/rat-dance-music.mp3',
+        'sounds/yippeeeeeeeeeeeeee.mp3',
+        'sounds/sad-meow-song.mp3',
+        'sounds/spongebob-fail.mp3',
+        'sounds/bombardiro-crocodilo.mp3'
       ];
     
-      let totalSoundsPlayed = 0;
-      let lastItemTime = 0;
+      let lastSound = null;
     
       gridItems.forEach((item, index) => {
         setTimeout(() => {
           item.style.opacity = 1;
-          
-          const sound = new Audio(sounds[index % sounds.length]);
+    
+          const randomSoundIndex = Math.floor(Math.random() * sounds.length);
+          const sound = new Audio(sounds[randomSoundIndex]);
           sound.play();
     
-          totalSoundsPlayed++;
-    
-          // Optionally play a random sound for every other item
-          if (index % 2 === 0) {
-            const randomSoundIndex = Math.floor(Math.random() * sounds.length);
-            const randomSound = new Audio(sounds[randomSoundIndex]);
-            randomSound.play();
-            totalSoundsPlayed++;
-          }
-    
-          // Track the last item appearance time
           if (index === gridItems.length - 1) {
-            lastItemTime = Date.now();
+            lastSound = sound;
           }
     
         }, delay);
-        
+    
         delay *= 0.8;
       });
     
-      // Check if all items are visible and navigate 1 second after the last one appears
-      const checkVisibilityAndNavigate = setInterval(() => {
-        if (Date.now() - lastItemTime >= 1000 && totalSoundsPlayed >= gridItems.length) {
-          clearInterval(checkVisibilityAndNavigate);
-          window.location.href = "reflection.html"; // Change page after 1 second
+      const checkForLastSound = setInterval(() => {
+        if (lastSound) {
+          clearInterval(checkForLastSound);
+          lastSound.addEventListener('ended', () => {
+            setTimeout(() => {
+              window.location.href = "reflection.html";
+            }, 3000);
+          });
         }
       }, 100);
     }
+    
     
     
     
