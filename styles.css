@@ -11,7 +11,7 @@ body {
 
 .content-container {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
   max-width: 100vw;
   max-height: 100vh;
   width: 100vw;
@@ -130,6 +130,7 @@ button {
 #desktopLoad {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   width: 100vw;
   height: 100vh;
 }
@@ -139,23 +140,24 @@ button {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  height: 5vh;
+  width: 100%;
+  height: 3.5vh;
+  margin-top: 0;
   background-color: black;
 }
 
 .info-wrapper img{
-  padding-left: 1.5em;
-  width: 1.25vw;
-  height: 1.25vw;
+  padding-left: 5em;
+  width: 1vw;
+  height: 1vw;
 }
 
 .info-wrapper #timer{
-  padding-right: 1.5em;
+  padding-right: 5em;
 }
 
 .app-wrapper {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -163,40 +165,72 @@ button {
   justify-content: space-evenly;
   width: 100vw;
   height: 79.5vh;
-  padding-top: .5em;
-  padding-bottom: .5em;
+  padding: 1em 0em 1em 6em;
 }
+
+/* #imgPH {
+  z-index: 1;
+}
+
+#actualApp {
+  z-index: 3;
+} */
 
 .icon-stack{
   position: relative;
 }
-.icon-stack img, .icon-stack #imgPH{
+
+/* .icon-stack img, .icon-stack #imgPH{
   position: absolute;
+} */
+
+.app-wrapper .icon-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
 }
+
+.app-wrapper .icon-stack .app-icon,
+.app-wrapper .icon-stack #actualApp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6vw;
+  height: 6vw;
+}
+
+.app-wrapper .icon-stack::before {
+  content: "";
+  display: block;
+  width: 6vw;
+  height: 6vw;
+}
+
 .app-wrapper .app-icon{
-  width: 8vw;
-  height: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5em;
+  width: 6vw;
+  height: 6vw;
   background-color: #6362624e;
   border-radius: 1em;
-  margin-bottom: .5em;
   margin-left: 1em;
   background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
   background-size: 150%;
   animation: gradientBg 2s linear infinite;
 }
 
-#actualApp img{
-  width: 8vw;
-  z-index: 3;
-}
-
-.dock-wrapper #actualApp img{
-  width: 5vw;
-  /* margin-left: 1em; */
+.app-wrapper #actualApp img{
+  width: 6vw;
 }
 
 .app-wrapper .app-name{
-  margin-left: 1.25em;
+  position: static;
+  margin-left: 0;
+  margin-top: 1em;
 }
 
 .dock-wrapper {
@@ -211,22 +245,48 @@ button {
   margin: 0 auto;
 }
 
+.dock-wrapper .icon-stack {
+  width: 5vw;
+  height: 5vw;
+}
 
-.dock-wrapper .app-icon {
+.dock-wrapper #imgPH{
+  position: absolute;
+  right:1em;
   width: 5vw;
   height: 5vw;
   background-color: #63626286;
   border-radius: 10px;
-  z-index: 2;
   background: linear-gradient(90deg, rgb(55, 55, 55) 0%, rgb(103, 103, 103) 50%, rgb(186, 186, 186) 100%);
   background-size: 150%;
   animation: gradientBg 2s linear infinite;
 }
 
+.dock-wrapper .icon-stack #actualApp img{
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  right: 1em;
+}
+
+/* .dock-wrapper .icon-stack .app-icon,
+.dock-wrapper .icon-stack #actualApp,
+.dock-wrapper .icon-stack #imgPH {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 10px;
+} */
+
+
 h5{
   margin: 0;
   padding-bottom: .5em;
   font-weight: 100;
+  font-size: 1.25em;
+  letter-spacing: 0.1em;
 }
 
 #timer{
