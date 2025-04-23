@@ -233,7 +233,7 @@ button {
   position: static;
   margin-left: 0;
   margin-top: 1em;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.877));
 
 }
 
@@ -327,3 +327,226 @@ h5{
   background-size: cover;
   opacity: 0;
 }
+
+/* icon bounce */
+
+@keyframes bounce{
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5em);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-2.5em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.dock-wrapper #discord.bounce{
+  animation: bounce 1s infinite;
+}
+
+.dock-wrapper #messages.bounce{
+  animation: bounce 1s infinite;
+}
+
+.dock-wrapper #chrome.bounce{
+  animation: bounce 1s infinite;
+}
+
+/* grid of popups */
+.grid-container {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(9, minmax(200px,1fr));
+  grid-template-rows: repeat(5, minmax(100px, 1fr));
+  gap: 10px;
+  width: 100vw;
+  height: 100vh;
+  /* background:purple; */
+}
+
+/* visual guide for setting up grid */
+/* .grid > * {
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+} */
+
+.grid-item{
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#discordLog{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 5;
+  z-index: 11;
+}
+
+#msgPop{
+  position:relative;
+  justify-content: center;
+  grid-row: 2;
+  grid-column: 4;
+  z-index: 12;
+}
+
+#msgPop img{
+  height: 40vh;
+  width: auto;
+}
+
+#ytVid{
+  position:relative;
+  justify-content: flex-start;
+  grid-row: 3;
+  grid-column: 2;
+  z-index: 13;
+}
+
+#ytVid img{
+  height: 70vh;
+  width: auto;
+}
+
+#outlookPop{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 7;
+  z-index: 14;
+
+}
+
+#systemUpdate{
+  position:relative;
+  justify-content: center;
+  grid-row: 1;
+  grid-column: 6;
+  z-index: 15;
+}
+
+#photos{
+  position:relative;
+  justify-content: flex-end;
+  grid-row: 2;
+  grid-column: 3;
+  z-index: 16;
+}
+
+#reminderPop{
+  position:relative;
+  justify-content: flex-start;
+  grid-row: 4;
+  grid-column: 8;
+  z-index: 17;
+}
+
+#reminderPop img{
+  height: 40vh;
+  width: auto;
+}
+
+#ftNotif{
+  position:relative;
+  justify-content: flex-end;
+  grid-row: 1;
+  grid-column: 9;
+  z-index: 18;
+}
+
+#setNotif{
+  position:relative;
+  justify-content: flex-end;
+  top: 100px;
+  grid-row: 1;
+  grid-column: 9;
+  z-index: 19;
+}
+
+#ig{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 5;
+  z-index: 20;
+}
+
+#ig img{
+  height: 80vh;
+  width: auto;
+}
+
+#chimp{
+  position:relative;
+  justify-content: flex-start;
+  grid-row: 3;
+  grid-column: 1;
+  z-index: 21;
+}
+
+#virus{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 5;
+  z-index: 22;
+}
+
+#virus img{
+  height: 30vh;
+  width: auto;
+}
+
+#virus2{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 5;
+  z-index: 23;
+}
+
+#virus2 img{
+  height: 50vh;
+  width: auto;
+
+}
+
+#virus3{
+  position:relative;
+  justify-content: center;
+  grid-row: 3;
+  grid-column: 5;
+  z-index: 24;
+}
+
+#virus3 img{
+  height: 70vh;
+  width: auto;
+}
+
+#end-1 .text{
+  max-width: 50vw;
+  line-height: 3em;
+}
+
+
