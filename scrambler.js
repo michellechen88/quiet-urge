@@ -1,9 +1,9 @@
 export const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 export function animateSentence(textElement, sentence, options = {}, onComplete = () => {}) {
-    const duration = options.duration || 2000;
+    const duration = options.duration || 5000;
     const settleSpeed = options.settleSpeed || 50;
-    const frameRate = options.frameRate || 15;
+    const frameRate = options.frameRate || 10;
   
     let currentText = Array.from({ length: sentence.length }, () => " ");
     const progressBar = document.getElementById("progressBar");
@@ -44,14 +44,14 @@ export function animateSentence(textElement, sentence, options = {}, onComplete 
 
 export function animateAll(textElement, sentences, options = {}, onFinish = () => {}) {
   let index = 0;
-  let lingerTime = options.initialLingerTime || 10;
+  let lingerTime = options.initialLingerTime || 10000;
 
   function next() {
     if (index < sentences.length) {
       textElement.style.opacity = 0;
 
       const currentLingerTime = lingerTime;
-      lingerTime += 1500;
+      lingerTime += 5000;
 
       setTimeout(() => {
         textElement.textContent = sentences[index];

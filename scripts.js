@@ -171,10 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }, 100);
     }
-    
-    
-    
-    
   
     setTimeout(() => {
       loadedBg.style.opacity = "1";
@@ -249,10 +245,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
   
     animateAll(textElement, sentences, {
-      duration: 2000,
-      settleSpeed: 50,
+      duration: 5000,
+      settleSpeed: 30,
       frameRate: 15,
-      initialLingerTime: 5
+      initialLingerTime: 30,
+      lingerTime: 20000
     }, () => {
     
     let startTime = Date.now();
@@ -262,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
       let elapsedTime = Math.floor((Date.now() - startTime) / 1000);
       timerElement.textContent = `${elapsedTime}s`;
-    }, 1000);
-  
+    }, 1000)
     });
   });
